@@ -22,24 +22,18 @@ public class cifradoxor {
         }
         Random r = new Random();
         char Key = (char)(r.nextInt(26) + 'a');
-        String CTxt = "";
+        String txt = "";
         int xor;
         char temp;
         for (int i = 0; i < Msg.length(); i++) {
             xor = Msg.charAt(i) ^ Key;
-            //xor=xor+32;
             temp = (char)xor;
-            //System.out.println(xor+"    "+temp);
-            CTxt = CTxt + (int)temp + " ";
+            txt = txt + (int)temp + " ";
         }
-        return CTxt+(int)Key;
+        return txt+(int)Key;
     }
-    public static char getKey(String CTxt){
-        String[] symbols = CTxt.split(" ");
-        return (char)(Integer.parseInt(symbols[symbols.length-1]));
-    }
-    public static String Decrypt(String CTxt){
-        String[] symbols = CTxt.split(" ");
+    public static String Decrypt(String txt){
+        String[] symbols = txt.split(" ");
         String Msg= "";
         char Key = (char)(Integer.parseInt(symbols[symbols.length-1]));
         int xor;
